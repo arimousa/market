@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>about us</title>
+{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-lg-4">
+                <img src="{% static 'images/claudio-schwarz-purzlbaum-KcPK_kzqWC8-unsplash.jpg' %}" class="rounded-lg shadow-sm" alt="" width="360"
+                     height="250">
+            </div>
+            <div class="col-lg-4">
+                <img src="{% static 'images/justin-lim-JKjBsuKpatU-unsplash.jpg' %}" alt="" class="rounded-lg shadow-sm" width="360" height="250">
+            </div>
+            <div class="col-lg-4">
+                <img src="{% static 'images/markus-spiske-BTKF6G-O8fU-unsplash.jpg' %}" alt="" class="rounded-lg shadow-sm" width="360" height="250">
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-6 offset-md-3">
+                <center><p class="h1 text-primary">Our market is the best market in the world!</p></center>
+                <center><p class="h2 mt-3">Selling technology!</p></center>
+                <center><p class="h5">More affordable than the other!</p></center>
+                <center><a href="{% url 'product' %}"><button type="button" class="btn btn-primary btn-lg mt-3 shadow">Lets buy</button></a></center>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>shopping</title>
+{% endblock title %}
+
+{% block content %}
+    <div class="container">
+
+        <br>
+        <table class="table table-bordered table-dark text-center" style="padding: 0">
+            <thead class="thead-dark">
+            <tr class="row">
+                <th class="col-4">Product</th>
+                <th class="col-4">Price</th>
+                <th class="col-4">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% if all_products %}
+                {% for obj in all_products %}
+                    <tr class="bg-dark row">
+                        <td class="col-4">{{ obj.name }}</td>
+                        <td class="col-4">{{ obj.price }}</td>
+                        <td class="col-4"><a href="{% url 'buy_product' obj.code %}">
+                            <button type="button" class="btn btn-warning">Buy</button>
+                        </a></td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+            </tbody>
+        </table>
+
+        {#page#}
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                {% if all_products.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?pg=1"><<</a></li>
+                    <li class="page-item"><a class="page-link"
+                                             href="?pg={{ all_products.previous_page_number }}">{{ all_products.previous_page_number }}</a>
+                    </li>
+                {% endif %}
+                <li class="page-item"><a class="page-link"
+                                         href="?pg={{ all_products.number }}">{{ all_products.number }}</a></li>
+                {% if all_products.has_next %}
+                    <li class="page-item"><a class="page-link"
+                                             href="?pg={{ all_products.next_page_number }}">{{ all_products.next_page_number }}</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="?pg={{ all_products.paginator.num_pages }}">>></a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+
+    </div>
+{% endblock content %}

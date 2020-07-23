@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>edit</title>
+{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <br>
+
+        {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-success" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+
+
+        <form method='post'>
+            {% csrf_token %}
+            <div class="form-group">
+                <label>
+                    {{ product_obj.name }}
+                </label>
+                <label>
+                    {{ product_obj.price }}
+                </label>
+                <label>
+                    amount:
+                    <input type="number" class="form-control" name="amount">
+                </label>
+                <button type="submit" class="btn btn-primary">Buy</button>
+            </div>
+        </form>
+
+
+
+
+
+
+    </div>
+{% endblock content %}

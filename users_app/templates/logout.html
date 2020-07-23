@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    <title>Logged Out</title>
+{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <br>
+        <h4>Logged out of the site</h4>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+    </div>
+{% endblock content %}
